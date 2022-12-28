@@ -59,3 +59,4 @@ commit history : 커밋 역사
 
 원격저장소, pull vs clone
 
+d
