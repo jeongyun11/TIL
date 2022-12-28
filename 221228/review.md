@@ -33,6 +33,22 @@ git은 버전을 관리한다.
 - github과 local의 commit이 통일이 안되면 pull로 통일시켜준다.
 - 같은 파일에서 갈리면 merge conflict가 발생한다. (재밌겠다.)
 
+
+# 버전 관리랑 상관 없는 파일
+
+*.txt = .txt를 확장자로 가지는 모든 파일
+
+.gitignore는 무시한다
+
+.git 에 secret.xlsx, user/, *.pptx 등을 넣으면 알맞게 무시한다.
+
+하지마 이미 commit한 경우는 적용이 안된다. -> 미리 .gitignore를 설정하자
+
+삭제해서 해결한다? -> 삭제됐다는 커밋에 남는다.(github는 commit한 버전을 관리)
+
+commit history : 커밋 역사
+
+역산느 잘 기록하고 바꾸려고 하면 혼나요
 ---
 
 **remote된 url이 폴더마다 다르다.**
@@ -40,4 +56,6 @@ git은 버전을 관리한다.
 ---
 
 브랜치란 무엇인가
+
+원격저장소, pull vs clone
 
