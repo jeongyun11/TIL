@@ -18,7 +18,12 @@ Remote Git Repository (GitHub)
 
 branch : 독립적인 작업흐름을 만들고 관리
 
-1. 브랜치 생성
+- 합동 작업의 유형
+1. clone 담아서 작업하는 데, 아무도 안하고 나 혼자하고 했을 때 (fastforward)
+2. 각자 다른 파일로 분업했을 때 (just merge)
+3. 같은 파일을 분업했을 때 (merge conflict)
+
+- 브랜치 생성
 
 merge : branch를 통합하는 명령어 (conflict를 조심!)
 
