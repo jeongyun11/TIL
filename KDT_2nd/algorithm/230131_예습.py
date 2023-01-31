@@ -94,6 +94,9 @@ for y in range(Y) :
 
 print()
 
+
+for x in range(X-1) :
+    list[x],list[x + 1] = list[x + 1],list[x]
     
 
 
