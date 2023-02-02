@@ -41,21 +41,49 @@ sys.stdin = open('test.txt', 'r')
 # 9455.
 # x와 y 대칭
 T = int(input())
-for t in range(T) :
-    X, Y = map(int, input().split())
-    matrix = [list(map(int, input().split())) for x in range(X)]
-    matrix_2 = [[0 for x in range(X)] for y in range(Y)]
+for _ in range(T) :
+    Y, X = map(int,input().split())
+    matrix = [list(map(int, input().split()))for y in range(Y)]
 
+    # 열 우선 탐색으로 아래부터 블럭을 내려준다
+    # - 블럭이 바닥에서 멈추게 한다.
     cnt = 0
     for x in range(X) :
-        for y in range(Y) :
-            matrix_2[y][x] = matrix[x][y]
-
-    for y in range(Y) :
-        for x in range(X) :
-            if matrix_2[y][x] == 1 :
-                cnt += matrix_2[y][x+1:].count(0)
+        for y in range(Y-2, -1, -1) : # 마지막 줄을 제외하고 아래에서 위로
+            while True :
+                if (matrix[y][x] == 1) :
+                    if (y+1 == len(matrix)) :
+                        break
+                    elif (matrix[y+1][x] == 1) :
+                        break
+                    else :
+                        matrix[y+1][x] = 1 
+                        matrix[y][x] = 0
+                        y += 1
+                        cnt += 1
+                else :
+                    break
     print(cnt)
+
+# T = int(input())
+# for t in range(T) :
+#     X, Y = map(int, input().split())
+#     matrix = [list(map(int, input().split())) for x in range(X)]
+#     matrix_2 = [[0 for x in range(X)] for y in range(Y)]
+
+#     for x in range(X) :
+#         for y in range(Y) :
+#             matrix_2[y][x] = matrix[x][y]
+
+#     cnt = 0
+#     for y in range(Y) :
+#         for x in range(X) :
+#             if matrix_2[y][x] == 1 :
+#                 cnt += matrix_2[y][x+1:].count(0)
+#     print(cnt)
+
+
+
 
     
 # # 1652.
@@ -102,18 +130,3 @@ for t in range(T) :
         
 # print(result1, result2)
 
-
-# # 2775. 
-# T = int(input())
-
-# for _ in range(T) :
-#     K = int(input())
-#     N = int(input())
-
-#     floor = [i for i in range(1, N + 1)]
-
-#     for k in range(K) :
-#         for n in range(N - 1,-1, -1) :
-#             floor[n] = sum(floor[:n+1])
-
-#     print(floor[-1])
