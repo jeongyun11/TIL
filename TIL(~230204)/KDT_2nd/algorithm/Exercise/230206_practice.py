@@ -118,31 +118,32 @@ sys.stdin = open('test.txt', 'r')
 # ---------------------------
 # 한 번 풀고
 
-def remove_land(matrix, stack, dxdy) : # stack에 담긴 좌표에 포함되는 land를 0으로 바꾸는 함수
-    while stack :
-        y, x = stack.pop()
-        for y1, x1 in dxdy : 
-            y_move = y + y1
-            x_move = x + x1
-            if 0 <= x_move < len(matrix[0]) and 0 <= y_move < len(matrix): # 행렬의 범위를 안 벗어나고
-                if matrix[y_move][x_move] == 1 :# 그 값이 1이면
-                    stack.append((y + y1, x + x1)) # 추가한다.
-        matrix[y][x] = 0
+# def remove_land(matrix, stack, dxdy) : # stack에 담긴 좌표에 포함되는 land를 0으로 바꾸는 함수
+#     while stack :
+#         y, x = stack.pop()
+#         for y1, x1 in dxdy : 
+#             y_move = y + y1
+#             x_move = x + x1
+#             if 0 <= x_move < len(matrix[0]) and 0 <= y_move < len(matrix): # 행렬의 범위를 안 벗어나고
+#                 if matrix[y_move][x_move] == 1 :# 그 값이 1이면
+#                     stack.append((y + y1, x + x1)) # 추가한다.
+#         matrix[y][x] = 0
 
-while True :
-    X, Y = map(int,input().split())
+# while True :
+#     X, Y = map(int,input().split())
 
-    if X == Y == 0 :
-        break
+#     if X == Y == 0 :
+#         break
 
-    matrix = [list(map(int,input().split())) for y in range(Y)]
-    cnt = 0
+#     matrix = [list(map(int,input().split())) for y in range(Y)]
+#     cnt = 0
 
-    for y in range(Y) :
-        for x in range(X) :
-            if matrix[y][x] == 1 : # 순회하며 1이면 
-                stack = [(y, matrix[y].index(1))] # 그 좌표를 stack에 넣어주고
-                remove_land(matrix, stack, [(1,1),(1,0),(1,-1),(0,1),(0,-1),(-1,1),(-1,0),(-1,-1)]) # 포함된 land를 0으로 바꾼다.
-                cnt +=1 # land가 사라질 때마다 +1
+#     for y in range(Y) :
+#         for x in range(X) :
+#             if matrix[y][x] == 1 : # 순회하며 1이면 
+#                 stack = [(y, matrix[y].index(1))] # 그 좌표를 stack에 넣어주고
+#                 remove_land(matrix, stack, [(1,1),(1,0),(1,-1),(0,1),(0,-1),(-1,1),(-1,0),(-1,-1)]) # 포함된 land를 0으로 바꾼다.
+#                 cnt +=1 # land가 사라질 때마다 +1
 
-    print(cnt)
+#     print(cnt)
+

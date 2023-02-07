@@ -109,3 +109,7 @@ for i in range(index) :
     print(matrix2[i])
 print()
 # 정점이 N일 때 가지는 최대 간선 개수 : (N-1)! = N(N-1)/2
+
+
+
+aaasssddddddd
